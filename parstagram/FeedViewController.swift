@@ -7,6 +7,7 @@
 
 import UIKit
 import Parse
+import AlamofireImage
 
 class FeedViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -27,7 +28,10 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         let imageFile = post["image"] as! PFFileObject
         let urlString = imageFile.url!
-        let url = URL(string: urlString)
+        let url = URL(string: urlString)!
+        print(url)
+        
+        cell.photoView.af_setImage(withURL: url)
         
         return cell
     }
