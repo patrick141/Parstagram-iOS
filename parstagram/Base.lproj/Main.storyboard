@@ -44,7 +44,7 @@
                                 <rect key="frame" x="58" y="363" width="296" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h1h-Vg-RMx">
                                 <rect key="frame" x="60" y="422" width="74" height="30"/>
@@ -111,8 +111,8 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="I like taking photos" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zM6-x7-2BC">
-                                                    <rect key="frame" x="89" y="397.5" width="305" height="20.5"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="I like taking photos" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zM6-x7-2BC">
+                                                    <rect key="frame" x="89" y="398" width="305" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -124,12 +124,12 @@
                                                 <constraint firstItem="igF-FH-ZQB" firstAttribute="leading" secondItem="gck-x5-3nM" secondAttribute="leading" constant="8" id="IpV-yF-x7V"/>
                                                 <constraint firstAttribute="bottom" secondItem="zM6-x7-2BC" secondAttribute="bottom" constant="19" id="Kgk-rb-cxQ"/>
                                                 <constraint firstItem="e3e-sm-Y1O" firstAttribute="top" secondItem="gck-x5-3nM" secondAttribute="top" constant="8" id="LTo-xX-fPI"/>
+                                                <constraint firstItem="zM6-x7-2BC" firstAttribute="top" secondItem="e3e-sm-Y1O" secondAttribute="bottom" constant="8" id="Nnu-3r-HcV"/>
                                                 <constraint firstItem="zM6-x7-2BC" firstAttribute="leading" secondItem="igF-FH-ZQB" secondAttribute="trailing" constant="8" id="YBN-DO-NqG"/>
                                                 <constraint firstItem="igF-FH-ZQB" firstAttribute="centerY" secondItem="zM6-x7-2BC" secondAttribute="centerY" id="Zc6-h2-QAr"/>
                                                 <constraint firstItem="e3e-sm-Y1O" firstAttribute="leading" secondItem="gck-x5-3nM" secondAttribute="leading" constant="8" id="dz3-Kj-YWV"/>
                                                 <constraint firstAttribute="bottom" secondItem="igF-FH-ZQB" secondAttribute="bottom" constant="19" id="lQl-y8-Q4y"/>
                                                 <constraint firstItem="igF-FH-ZQB" firstAttribute="top" secondItem="e3e-sm-Y1O" secondAttribute="bottom" constant="8" id="oiN-hd-eZ4"/>
-                                                <constraint firstItem="zM6-x7-2BC" firstAttribute="trailing" secondItem="gck-x5-3nM" secondAttribute="trailingMargin" id="tge-Ms-9pS"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>

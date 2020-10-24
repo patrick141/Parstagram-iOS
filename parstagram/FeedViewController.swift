@@ -12,6 +12,7 @@ import AlamofireImage
 class FeedViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var posts = [PFObject]()
+    let refreshControl = UIRefreshControl()
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return posts.count
@@ -38,15 +39,7 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        let query = PFQuery(className:"Post")
-        query.includeKey("author")
-        query.limit = 20
-        query.findObjectsInBackground { (posts: [PFObject]?, error: Error?) in
-            if posts != nil{
-                self.posts = posts!
-                self.tableView.reloadData()
-            }
-        }
+        loadPosts()
     }
 
     @IBOutlet weak var tableView: UITableView!
@@ -55,8 +48,24 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
 
         tableView.delegate = self
         tableView.dataSource = self
+        
+        refreshControl.addTarget(self, action: #selector(loadPosts), for: .valueChanged)
+        tableView.refreshControl = refreshControl
     }
     
+    @objc func loadPosts(){
+        let query = PFQuery(className:"Post")
+        query.includeKey("author")
+        query.limit = 20
+        query.order(byDescending: "createdAt")
+        query.findObjectsInBackground { (posts: [PFObject]?, error: Error?) in
+            if posts != nil{
+                self.posts = posts!
+                self.tableView.reloadData()
+                self.refreshControl.endRefreshing()
+            }
+        }
+    }
 
     /*
     // MARK: - Navigation
